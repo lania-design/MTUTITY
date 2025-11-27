@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nature For The Future</title>
+  <meta name="description" content="Nature For The Future — community site for conservation, education and eco-assessment." />
+  <style>
+    :root{
+      --accent: #9900ff;
+      --accent-2: #00ff08;
+      --bg: #fbfbfb;
+      --card: #00ff1ef0;
+      --muted: #000000;
+      --maxw: 1100px;
+      font-family: Arial, Helvetica, sans-serif,
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#083823;line-height:1.45}
+    .container{max-width:var(--maxw);margin:0 auto;padding:20px}
+
+    header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;position:sticky;top:0;z-index:50}
+    header .container{display:flex;align-items:center;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:10px;background:#fff;color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800}
+    nav{margin-left:auto}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:8px;align-items:center}
+    nav a{color:white;text-decoration:none;padding:10px 14px;border-radius:8px;font-weight:600;display:block}
+    nav a:hover{background:rgba(255,255,255,0.12)}
+
+    main{padding:28px 0}
+    /* HERO */
+    .hero{
+      width:100%;
+      border-radius:14px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:18px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .hero-left{
+      padding:28px;
+      background:linear-gradient(180deg, rgba(42,122,74,0.06), rgba(27,107,59,0.02));
+    }
+    .hero-left h1{margin:0 0 12px;font-size:30px}
+    .hero-left p.lead{margin:0 0 16px;color:var(--muted)}
+    .cta{display:inline-block;padding:10px 14px;background:var(--accent);color:white;border-radius:10px;text-decoration:none;font-weight:700;margin-right:8px}
+    .alt-cta{background:#fff;color:var(--accent);border:2px solid var(--accent);padding:8px 12px}
+
+    .hero-right{padding:0}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .hero-grid img{width:100%;height:140px;object-fit:cover;display:block}
+
+    /* cards */
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 8px 28px rgba(8,20,15,0.04)}
+    .card h3{margin:0 0 8px}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:16px}
+    .gallery img{width:100%;height:180px;object-fit:cover;border-radius:10px;display:block}
+
+    /* sections */
+    section{display:none}
+    section.active{display:block}
+
+    /* team */
+    .team-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .member{flex:1 1 220px;background:var(--card);padding:12px;border-radius:10px;text-align:left}
+    .member h3{margin:6px 0 2px}
+
+    /* assessment */
+    .quiz{padding:12px}
+    .question{margin-bottom:10px}
+    input[type="radio"]{margin-right:8px}
+
+    /* calculators buttons/tags */
+    .tag-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .tag{background:var(--accent);color:white;border:none;padding:8px 12px;border-radius:20px;cursor:pointer}
+    .tag.secondary{background:#e9f4ec;color:var(--accent);border:1px solid var(--accent)}
+
+    /* contact */
+    form{display:grid;gap:8px}
+    input,textarea,select,button{padding:10px;border-radius:8px;border:1px solid #e6efe8;font-size:1rem}
+    textarea{min-height:100px;resize:vertical}
+    button{background:var(--accent);color:white;border:none;cursor:pointer}
+
+    footer{background:var(--accent-2);color:white;padding:18px 0;margin-top:22px}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo">NF</div>
+        <div>
+          <div style="font-weight:800">Nature For The Future</div>
+          <div style="font-size:0.85rem;color:rgba(255,255,255,0.9)">Protect • Restore • Inspire</div>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a onclick="showSection('home')">Home</a></li>
+          <li><a onclick="showSection('purpose')">Purpose</a></li>
+          <li><a onclick="showSection('about')">About Us</a></li>
+          <li><a onclick="showSection('resources')">Resources</a></li>
+          <li><a onclick="showSection('events')">Events</a></li>
+          <li><a onclick="showSection('assessment')">Assessment</a></li>
+          <li><a onclick="showSection('contact')">Contact</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="active">
+      <div class="hero" role="banner" aria-label="Nature For The Future hero">
+        <div class="hero-left">
+          <h1>Protecting Nature — For Our Future</h1>
+          <p class="lead">Join our community restoring habitats, protecting wildlife, and creating sustainable neighborhoods. Small actions add up — start today.</p>
+          <a class="cta" onclick="showSection('events')">Find Events</a>
+          <a class="cta alt-cta" onclick="showSection('resources')">Learn How</a>
+
+          <div class="grid-3" style="margin-top:16px">
+            <div class="card">
+              <h3>Conservation Priority</h3>
+              <p class="muted">Protecting habitats, restoring waterways, and preventing illegal hunting are our top priorities.</p>
+            </div>
+            <div class="card">
+              <h3>Wildlife & Biodiversity</h3>
+              <p class="muted">Support pollinators and native species by planting local plants and reducing pesticide use.</p>
+            </div>
+            <div class="card">
+              <h3>Community Action</h3>
+              <p class="muted">Volunteer for cleanups, tree-planting, and educational workshops to make a local difference.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-grid" aria-hidden="false">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60" alt="Lush forest trees">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60" alt="Wild animal">
+            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=60" alt="Bird in nature">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=60" alt="Volunteers planting trees">
+            <img src="bik.jfif">
+            <img src="bt.jfif">
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery" aria-hidden="false" style="margin-top:14px">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=60" alt="Forest path">
+        <img src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=1000&q=60" alt="River conservation">
+        <img src="bik.jfif">
+        <img src="bg.jfif">
+      </div>
+    </section>
+
+    <!-- PURPOSE -->
+    <section id="purpose">
+      <h2>Our Purpose</h2>
+      <p class="muted">Our purpose is to maintain and reserve the nature for the future generations.</p>
+      <div class="grid-3" style="margin-top:12px">
+        <div class="card"><h3>Educate</h3><p class="muted">Resources and guides for schools and households.</p></div>
+        <div class="card"><h3>Act</h3><p class="muted">Organized cleanups, planting days and recycling drives.</p></div>
+        <div class="card"><h3>Measure</h3><p class="muted">Assessments to track personal impact and progress.</p></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p class="muted">We are a volunteer-led group combining environmental science, community organizing and local partnership to deliver measurable impact.</p>
+      <p>MEET WITH OUR TEAM IN THIS WEBSITE</p>
+      <div class="team-grid">
+        <div class="member card">
+          <h3>CYIZA ROBERT</h3>
+          <div style="color:var(--muted);font-weight:700">Community Lead</div>
+          <p class="muted">CHIEF OF WEBSITE MANAGEMENT AND THE NATURE IN GENERAL.</p>
+        </div>
+
+        <div class="member card">
+          <h3>CELINE</h3>
+          <div style="color:var(--muted);font-weight:700">Design & Outreach</div>
+          <p class="muted">CREATES VISUAL GUIDES, MATERIALS AND CAMPAINGS.</p>
+        </div>
+        <div class="member card">
+          <h3>UMUTESI LANIA</h3>
+          <div style="color:var(--muted);font-weight:700">Content & Education</div>
+          <p class="muted">WRITES TIPS, SCHOOL MATERIALS AND COMMUNITY SERVICES.</p>
+        </div>
+        <div class="member card">
+          <h3>MPANO KEVIN</h3>
+          <div style="color:var(--muted);font-weight:700">Community Outreach</div>
+          <p class="muted">RESPONSIBLE FOR COORDINATING VOLUNTEERS AND EVENTS.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources">
+      <h2>Resources</h2>
+      <p class="muted">Practical guides to conserve water, reduce waste, make wildlife-friendly gardens and plant native species.</p>
+      <div class="grid-3" style="margin-top:12px">
+        <div class="card"><h3>Water Conservation</h3><p class="muted">Simple ways to save water at home and school.</p></div>
+        <div class="card"><h3>Reduce & Reuse</h3><p class="muted">Tips to cut single-use plastics and reuse items.</p></div>
+        <div class="card"><h3>Native Gardening</h3><p class="muted">How to choose native plants to support pollinators.</p></div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+      <h2>Events & Volunteering</h2>
+      <p class="muted">Join cleanup drives, tree planting days and workshops near you. Sign up below to get event notices.</p>
+      <div class="card" style="margin-top:12px">
+        <h3>Upcoming</h3>
+        <ul style="text-align:left;color:var(--muted)">
+          <li>Community River Cleanup — Sat, Dec 6</li>
+          <li>Tree Planting Day — Sun, Dec 14</li>
+          <li>Composting Workshop — Sat, Jan 10</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ASSESSMENT -->
+    <section id="assessment">
+      <h2>Eco-Assessment & Calculators</h2>
+      <div class="card quiz" style="margin-top:12px">
+        <p class="muted">Choose between a short quiz to get personalised tips or use the calculators for quick math.</p>
+
+        <div class="tag-bar" role="tablist" aria-label="Assessment tabs">
+          <button class="tag" onclick="showTab('quiz')">Quiz</button>
+          <button class="tag secondary" onclick="showTab('simple')">KENKO Calculator</button>
+          <button class="tag secondary" onclick="showTab('scientific')">Scientific Calculator</button>
+        </div>
+
+        <!-- QUIZ -->
+        <div id="tab-quiz" style="display:block">
+          <div id="questions"></div>
+          <div style="margin-top:10px">
+            <button onclick="finishQuiz()">Submit Assessment</button>
+          </div>
+          <div id="quiz-result" style="margin-top:12px;font-weight:700"></div>
+        </div>
+
+        <!-- SIMPLE CALCULATOR (KENKO) -->
+        <div id="tab-simple" style="display:none">
+          <h3>KENKO Simple Calculator</h3>
+          <div style="margin-top:2px">
+            <input type="text" id="kenko-display" placeholder="0" style="width:50%;padding:3px;font-size:1.1rem;text-align:right;" readonly/>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px">
+            <button class="tag secondary" onclick="kenkoPress('7')">7</button>
+            <button class="tag secondary" onclick="kenkoPress('8')">8</button>
+            <button class="tag secondary" onclick="kenkoPress('9')">9</button>
+            <button class="tag secondary" onclick="kenkoPress('/')">÷</button>
+
+            <button class="tag secondary" onclick="kenkoPress('4')">4</button>
+            <button class="tag secondary" onclick="kenkoPress('5')">5</button>
+            <button class="tag secondary" onclick="kenkoPress('6')">6</button>
+            <button class="tag secondary" onclick="kenkoPress('*')">×</button>
+
+            <button class="tag secondary" onclick="kenkoPress('1')">1</button>
+            <button class="tag secondary" onclick="kenkoPress('2')">2</button>
+            <button class="tag secondary" onclick="kenkoPress('3')">3</button>
+            <button class="tag secondary" onclick="kenkoPress('-')">-</button>
+
+            <button class="tag secondary" onclick="kenkoPress('0')">0</button>
+            <button class="tag secondary" onclick="kenkoPress('.')">.</button>
+            <button class="tag secondary" onclick="kenkoClear()">C</button>
+            <button class="tag secondary" onclick="kenkoPress('+')">+</button>
+
+            <button class="tag" style="grid-column: span 4" onclick="kenkoEval()">=</button>
+          </div>
+        </div>
+
+        <!-- SCIENTIFIC CALC -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input placeholder="Full Name" />
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 Nature For The Future. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // SECTION NAV
+    function showSection(id){
+      document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // TAB SWITCH
+    function showTab(tab){
+      ['quiz','simple','scientific'].forEach(t=>{
+        document.getElementById('tab-'+t).style.display = (t===tab)?'block':'none';
+      });
+    }
+
+    // QUIZ EXAMPLE
+    const questionsData=[
+      {q:"Do you recycle?",a:["Yes","No"],correct:0},
+      {q:"Do you plant trees?",a:["Yes","No"],correct:0},
+      {q:"Do you save water?",a:["Yes","No"],correct:0},
+    ];
+    const questionsDiv=document.getElementById('questions');
+    questionsData.forEach((q,i)=>{
+      const div=document.createElement('div');div.className='question';
+      div.innerHTML=`<p>${i+1}. ${q.q}</p>`+q.a.map((opt,j)=>`<label><input type="radio" name="q${i}" value="${j}"/>${opt}</label>`).join('');
+      questionsDiv.appendChild(div);
+    });
+    function finishQuiz(){
+      let score=0;
+      questionsData.forEach((q,i)=>{
+        const sel=document.querySelector(`input[name="q${i}"]:checked`);
+        if(sel && parseInt(sel.value)===q.correct)score++;
+      });
+      document.getElementById('quiz-result').innerText=`You scored ${score} out of ${questionsData.length}`;
+    }
+
+    // KENKO CALCULATOR
+    let kenkoCurrent='';
+    function kenkoPress(val){
+      kenkoCurrent+=val;
+      document.getElementById('kenko-display').value=kenkoCurrent;
+    }
+    function kenkoClear(){kenkoCurrent='';document.getElementById('kenko-display').value='';}
+    function kenkoEval(){
+      try{
+        if(!/^[0-9\.\+\-\*\/\(\)\s]+$/.test(kenkoCurrent)){
+          document.getElementById('kenko-display').value='Invalid input';
+          kenkoCurrent='';
+          return;
+        }
+        let result=Function('"use strict";return ('+kenkoCurrent+')')();
+        document.getElementById('kenko-display').value=result;
+        kenkoCurrent='';
+      }catch(e){document.getElementById('kenko-display').value='Error';kenkoCurrent='';}
+    }
+
+    // SCIENTIFIC CALCULATOR
+    function scientificCalc(){
+      const input=document.getElementById('sc-input').value;
+      const func=document.getElementById('sc-func').value;
+      let val;
+      try{
+        if(func==='none'){val=Function('"use strict";return ('+input+')')();}
+        else{let x=parseFloat(input);
+          if(func==='sin') val=Math.sin(x);
+          else if(func==='cos') val=Math.cos(x);
+          else if(func==='tan') val=Math.tan(x);
+          else if(func==='log') val=Math.log10(x);
+          else if(func==='ln') val=Math.log(x);
+          else if(func==='pow2') val=Math.pow(x,2);
+          else if(func==='sqrt') val=Math.sqrt(x);
+        }
+        document.getElementById('sc-result').innerText='Result: '+val;
+      }catch(e){
+        document.getElementById('sc-result').innerText='Error';
+      }
+    }
+  </script>
+</body>
+</html>
